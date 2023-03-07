@@ -77,7 +77,7 @@ modeltf = keras.Sequential([
 
 
 # Visualizing the Model
-adam = keras.optimizers.Adam(learning_rate=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+adam = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 modeltf.compile(loss='sparse_categorical_crossentropy',
               optimizer=adam,
               metrics=['accuracy'])
@@ -87,7 +87,7 @@ modeltf.summary()
 # Training the Model
 
 print("Training the model")
-modeltf.fit(train_images_tf, train_labels_tf, epochs=90, batch_size=64)
+modeltf.fit(train_images_tf, train_labels_tf, epochs=30, batch_size=64)
 
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True' # temporary fix for duplicate file issue
