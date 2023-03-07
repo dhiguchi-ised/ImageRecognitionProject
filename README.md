@@ -7,7 +7,15 @@ The data we are training our model with are patent images that we preprocess so 
 
 Our test/verification set currently consists of 20 images.
 
-# Description of CNN Model
+# Description of Current CNN Model 
+Currently takes in images with dimensions 256 x 256, that are gray-scale. 
+
+Input layer has 32 filters, with a 5x5 kernel that performs 2 pixel strides. The first hidden layer consists of 64 filters, with a 5x5 kernel that performs 1 pixel strides. The second hidden layer consists of 128 filters, with a 3x3 kernel that performs 2 pixel strides. The third hidden layer consists of 64 filters, with a 3x3 kernel that performs 1 pixel strides. 
+Right before our output layer we have a fully connected layer with 128 filters. We output 6 different labels. Between each covolutional layer, there is a max-pooling layer that is 2x2 with strides of 2.
+
+The model is currently trained in random batches of size 64, and the process is set to 30 epochs. We are using the Adam optimizer with a learning rate of 0.001.
+
+# Description of CNN Model Before Run 1 of Training Model Log
 Currently takes in images with dimensions 256 x 256, that are gray-scale. 
 
 Input layer has 32 filters, with a 7x7 kernel that performs 1 pixel strides. The first hidden layer consists of 64 filters, with a 5x5 kernel that performs 1 pixel strides. The second hidden layer consists of 128 filters, with a 3x3 kernel that performs 1 pixel strides. The third hidden layer consists of 64 filters, with a 3x3 kernel that performs 1 pixel strides. 
@@ -112,3 +120,19 @@ Test Set Accuracy - 14/20
 Speed - 401s -> 6.68 mins.
 Training Loss at End -> 0.2388
 Training Accuracy at End -> 0.9710
+
+## 2023-03-07 Run 11:
+Changed learning rate of optimizer to 0.001
+
+Test Set Accuracy - 15/20
+Speed - 459s -> 7.65 mins.
+Training Loss at End -> 1.1466e-04
+Training Accuracy at End -> 1.0000
+
+## 2023-03-07 Run 12:
+Changing Number of epochs to 30
+
+Test Set Accuracy - 16/20
+Speed - 151s -> 2.5167 mins.
+Training Loss at End -> 0.0446
+Training Accuracy at End -> 0.9968
